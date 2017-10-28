@@ -1,5 +1,5 @@
 function checkValidEmail() {
-  var email = document.getElementsByClassName("registration__login")[0].value;
+  var email = document.getElementsByClassName("registration__email")[0].value;
   var result = email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i);
   if (!result){
     return false;
@@ -23,3 +23,18 @@ function checkRules() {
   }
   return true;
 }
+
+document.getElementsByClassName("registration")[0].onsubmit = function() {
+  if (checkValidEmail() && checkPasswords() && checkRules()) {
+    alert("Регистрация прошла успешно!");  
+  } else {
+    if (!checkValidEmail()) {
+      alert('Введите валидный e-mail.');
+    } else if (!checkPasswords()) {
+      alert('Пароли должны быть неменее 6-ти символов и совпадать.');
+    } else {
+      alert('Примите условия соглашения.');
+    }
+    return false;
+  }
+};
