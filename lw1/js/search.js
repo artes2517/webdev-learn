@@ -30,3 +30,9 @@ for (var i = 0; i < SIZE; i++) {
         
 document.write("<p>Filled random array:</p>");
 document.write("<p>" + randomArray + "</p>");
+
+if (linearSearch(randomArray, number) != SIZE + 1) {
+  document.write("<p>Element in array!</p>"); 
+} else {
+  document.write("<p>Element not in array.</p>");
+}
