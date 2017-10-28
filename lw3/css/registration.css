@@ -1,6 +1,7 @@
 body {
   background: #eee;
   margin: 0;
+  overflow: hidden;   
 }
 
 .content {
@@ -11,18 +12,9 @@ body {
   padding-top: 45px;
   width: 100%;
 }
- 
-.content-fluid {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
-}
 
 .header {
-  background:#ddd;
+  background: #ddd;
   border-width: 1px;
   border-style: solid;
   border-color: #ddd;
@@ -39,7 +31,7 @@ body {
   border-style: solid;
   border-color: #ddd;
   display: block;
-  height: 80px;
+  height: 60px;
   left: 0;
   margin: 0;
   position: fixed;
@@ -86,9 +78,6 @@ body {
 }
 
 @media (min-width: 320px) {
-  html { 
-    overflow: hidden; 
-  }
   .content {
     max-width: 320px;
     padding-left: 5px;
