@@ -1,18 +1,72 @@
-.page {
+body {
+  background: #eee;
+  margin: 0;
+}
+
+.content {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 45px;
+  width: 100%;
+}
+ 
+.content-fluid {
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
   width: 100%;
 }
- 
-.page-fluid {
+
+.header {
+  background:#ddd;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ddd;
+  display: block;
+  height: 45px;
+  margin: 0;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  width: 100%;
+}
+
+.footer {
+  background: #ddd;
+  bottom: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ddd;
+  display: block;
+  height: 80px;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  width: 100%; 
+}
+
+.registration__button {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff
+}
+
+.registration__button_action:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
 .form-control {
@@ -35,7 +89,7 @@
   html { 
     overflow: hidden; 
   }
-  .page {
+  .content {
     max-width: 320px;
     padding-left: 5px;
     padding-right: 15px;
@@ -43,31 +97,31 @@
 }
 
 @media (min-width: 480px) {
-    .page {
+    .content {
       max-width: 480px;
     }
   }
 
 @media (min-width: 576px) {
-  .page {
+  .content {
     max-width: 540px;
   }
 }
   
 @media (min-width: 768px) {
-  .page {
+  .content {
     max-width: 720px;
   }
 }
   
 @media (min-width: 992px) {
-  .page {
+  .content {
     max-width: 960px;
   }
 }
   
 @media (min-width: 1200px) {
-  .page {
+  .content {
     max-width: 1140px;
   }
 }
