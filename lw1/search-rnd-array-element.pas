@@ -8,7 +8,6 @@ var
   i : integer;
 begin
   clrscr;
-
   randomize;
 
   for i := 1 to SIZE do 
@@ -17,7 +16,7 @@ begin
   writeln('Filled random array: ');
   for i := 1 to SIZE do
     write(randomArray[i], ' ');
- 
+
   writeln;
 
   randomElement := random(MAX_RANDOM);
@@ -26,7 +25,7 @@ begin
   i := 1;
   while (randomArray[i] <> randomElement) do
     inc(i);
- 
+
   if (i <> SIZE + 1) then
     writeln('Element ', randomElement, ' is found!') 
   else
