@@ -1,10 +1,10 @@
 var SIZE = 10;
 var MAX_RANDOM = 15;
 
-var randomArray = [SIZE];
+var randomArray = [];
 
 for (var i = 0; i < SIZE; i++) {
-  randomArray[i] = Math.floor(Math.random() * MAX_RANDOM);  
+  randomArray.push(Math.floor(Math.random() * MAX_RANDOM));  
 }
 
 do {
