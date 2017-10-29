@@ -9,7 +9,7 @@ body {
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
-  padding-top: 45px;
+  padding-top: 100px;
   width: 100%;
 }
 
@@ -18,7 +18,8 @@ body {
   border-width: 1px;
   border-style: solid;
   border-color: #ddd;
-  display: block;
+  position: fixed; 
+  left: 0;
   height: 45px;
   margin: 0;
   width: 100%;
