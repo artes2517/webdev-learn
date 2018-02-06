@@ -1,7 +1,7 @@
-class CoffeMachine {
+class CoffeeMachine {
   constructor() {
     this._currentBalance = 0;
-    this._coffeMenu = [ 
+    this._coffeeMenu = [ 
                          { id: 1, name: "Американо", price: 10 },
                          { id: 2, name: "Латте", price: 15 },
                          { id: 3, name: "Каппучино", price: 20 }
@@ -23,9 +23,9 @@ class CoffeMachine {
   }
 
   getCoffeeMenu() {
-    this._coffeMenu.forEach(function(coffe, i) {
-      console.log(coffe.id + ' - ' + coffe.name + ' (' + 
-                  coffe.price + ' руб.);');
+    this._coffeeMenu.forEach(function(coffee, i) {
+      console.log(coffee.id + ' - ' + coffee.name + ' (' + 
+                  coffee.price + ' руб.);');
     }, this);
   }
   
@@ -43,7 +43,15 @@ class CoffeMachine {
   }
 
   checkValidationNumberCoffee(number) {
-    return number in [1, this._coffeeMenu.length];
+    return ((number >= 1 ) && 
+            (number <= this._coffeeMenu.length));
   }
 
+  calculateRemain() {
+    return this._currentBalance - this._coffeeMenu[this._currentCoffeeNumber - 1].price;
+  }
+
+  getRemainCash() {
+    return this.calculateRemain();
+  }
 }
