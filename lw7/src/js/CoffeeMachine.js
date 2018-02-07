@@ -23,6 +23,12 @@ class CoffeeMachine {
     return this._currentBalance;
   }
 
+  set currentBalance(value) {
+    if (value >= 0) {
+      this._currentBalance = value;
+    }
+  } 
+
   checkValidationCash(cash) {
     return cash === 1 || cash === 2 || cash === 5 || 
            cash === 10 || cash === 50 || cash === 100;

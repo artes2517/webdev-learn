@@ -72,3 +72,57 @@ describe('Метод checkValidationNumberCoffee', function() {
     makeTest(arrange.value, arrange.expected);
   });
 });
+
+describe('Метод checkEnoughMoney', function() {
+  function makeTest(value, expected) {
+    it(`при балансе ${value.balance} и выбраном номере кофе ${value.coffeeNumber} должен вернуть ${expected}`, function() {
+      let testCoffeMachine = new CoffeeMachine();
+      testCoffeMachine.currentBalance = value.balance;
+      let actual = testCoffeMachine.checkEnoughMoney(value.coffeeNumber);
+      assert.equal(expected, actual);
+    });
+  }
+  let arranges = [
+                  { value: { balance: 0, coffeeNumber: 1 }, expected: false },
+                  { value: { balance: 2, coffeeNumber: 1 }, expected: false },
+                  { value: { balance: 5, coffeeNumber: 1 }, expected: false },
+                  { value: { balance: 4, coffeeNumber: 1 }, expected: false },
+                  { value: { balance: 7, coffeeNumber: 1 }, expected: false },
+                  { value: { balance: 8, coffeeNumber: 1 }, expected: false },
+                  { value: { balance: 9, coffeeNumber: 1 }, expected: false },
+                  { value: { balance: 0, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 2, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 5, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 4, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 7, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 8, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 9, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 10, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 14, coffeeNumber: 2 }, expected: false },
+                  { value: { balance: 0, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 2, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 5, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 4, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 7, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 8, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 9, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 10, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 19, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 15, coffeeNumber: 3 }, expected: false },
+                  { value: { balance: 500, coffeeNumber: 1 }, expected: true },
+                  { value: { balance: 100, coffeeNumber: 1 }, expected: true },
+                  { value: { balance: 500, coffeeNumber: 1 }, expected: true },
+                  { value: { balance: 10, coffeeNumber: 1 }, expected: true },
+                  { value: { balance: 500, coffeeNumber: 2 }, expected: true },
+                  { value: { balance: 100, coffeeNumber: 2 }, expected: true },
+                  { value: { balance: 500, coffeeNumber: 2 }, expected: true },
+                  { value: { balance: 15, coffeeNumber: 2 }, expected: true },
+                  { value: { balance: 500, coffeeNumber: 3 }, expected: true },
+                  { value: { balance: 100, coffeeNumber: 3 }, expected: true },
+                  { value: { balance: 500, coffeeNumber: 3 }, expected: true },
+                  { value: { balance: 20, coffeeNumber: 3 }, expected: true },
+                ];
+  arranges.forEach(function(arrange, i) {
+    makeTest(arrange.value, arrange.expected);
+  });
+});
