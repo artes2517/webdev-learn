@@ -1,11 +1,13 @@
+'use strict';
+
 class CoffeeMachine {
   constructor() {
     this._currentBalance = 0;
-    this._coffeeMenu = [ 
-                         { id: 1, name: "Американо", price: 10 },
-                         { id: 2, name: "Латте", price: 15 },
-                         { id: 3, name: "Каппучино", price: 20 }
-                       ];
+    this._coffeeMenu = new Map ([ 
+                                  [1, { name: "Американо", price: 10 }],
+                                  [2, { name: "Латте", price: 15 }],
+                                  [3, { name: "Каппучино", price: 20 }]
+                               ]);
     this._currentCoffeeNumber = null;
   }
 
@@ -23,15 +25,14 @@ class CoffeeMachine {
   }
 
   getCoffeeMenu() {
-    this._coffeeMenu.forEach(function(coffee, i) {
-      console.log(coffee.id + ' - ' + coffee.name + ' (' + 
-                  coffee.price + ' руб.);');
-    }, this);
+    for(let [id, coffee] of this._coffeeMenu) {
+      console.log(`${id} - ${coffee.name} (${coffee.price} руб.)`);
+    }
   }
   
   chooseCoffee(coffeeNumber) {
     if (this.checkValidationNumberCoffee(coffeeNumber) && 
-        this.checkEnoughMoney(coffeeNumber - 1)) {
+        this.checkEnoughMoney(coffeeNumber)) {
       this._currentCoffeeNumber = coffeeNumber;
       return true;
     }
@@ -39,16 +40,15 @@ class CoffeeMachine {
   }
 
   checkEnoughMoney(coffeeNumber) {
-    return (this._currentBalance >= this._coffeeMenu[coffeeNumber].price);
+    return (this._currentBalance >= this._coffeeMenu.get(coffeeNumber).price);
   }
 
   checkValidationNumberCoffee(number) {
-    return ((number >= 1 ) && 
-            (number <= this._coffeeMenu.length));
+    return this._coffeeMenu.has(number);
   }
 
   calculateRemain() {
-    return this._currentBalance - this._coffeeMenu[this._currentCoffeeNumber - 1].price;
+    return this._currentBalance - this._coffeeMenu.get(this._currentCoffeeNumber).price;
   }
 
   getRemainCash() {
