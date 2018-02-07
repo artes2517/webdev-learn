@@ -19,6 +19,10 @@ class CoffeeMachine {
     return false;
   }
 
+  get currentBalance() {
+    return this._currentBalance;
+  }
+
   checkValidationCash(cash) {
     return cash === 1 || cash === 2 || cash === 5 || 
            cash === 10 || cash === 50 || cash === 100;
@@ -55,3 +59,5 @@ class CoffeeMachine {
     return this.calculateRemain();
   }
 }
+
+module.exports = CoffeeMachine;
