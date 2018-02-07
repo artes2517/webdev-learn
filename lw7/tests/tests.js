@@ -190,3 +190,92 @@ describe('Метод chooseCoffee', function() {
     makeTest(arrange.value, arrange.expected);
   });
 });
+
+describe('Метод setCash', function() {
+  function makeTest(value, expected) {
+    it(`добавляет ${value.cash} к текущему балансу ${value.balance} и итоговый баланс должен стать: ${expected}`, function() {
+      let testCoffeMachine = new CoffeeMachine();
+      testCoffeMachine.currentBalance = value.balance;
+      testCoffeMachine.setCash(value.cash);
+      let actual = testCoffeMachine.currentBalance;
+      assert.equal(expected, actual);
+    });
+  }
+  let arranges = [
+                  { value: { balance: 0, cash: null }, expected: 0 },
+                  { value: { balance: 5, cash: null }, expected: 5 },
+                  { value: { balance: 10, cash: null }, expected: 10 },
+                  { value: { balance: 100, cash: null }, expected: 100 },
+                  { value: { balance: 0, cash: undefined }, expected: 0 },
+                  { value: { balance: 5, cash: undefined }, expected: 5 },
+                  { value: { balance: 10, cash: undefined }, expected: 10 },
+                  { value: { balance: 100, cash: undefined }, expected: 100 },
+                  { value: { balance: 0, cash: -1 }, expected: 0 },
+                  { value: { balance: 5, cash: -1 }, expected: 5 },
+                  { value: { balance: 10, cash: -1 }, expected: 10 },
+                  { value: { balance: 100, cash: -1 }, expected: 100 },
+                  { value: { balance: 0, cash: -20 }, expected: 0 },
+                  { value: { balance: 5, cash: -20 }, expected: 5 },
+                  { value: { balance: 10, cash: -20 }, expected: 10 },
+                  { value: { balance: 100, cash: -20 }, expected: 100 },
+                  { value: { balance: 0, cash: 3 }, expected: 0 },
+                  { value: { balance: 5, cash: 3 }, expected: 5 },
+                  { value: { balance: 10, cash: 3 }, expected: 10 },
+                  { value: { balance: 100, cash: 3 }, expected: 100 },
+                  { value: { balance: 0, cash: 5000 }, expected: 0 },
+                  { value: { balance: 5, cash: 5000 }, expected: 5 },
+                  { value: { balance: 10, cash: 5000 }, expected: 10 },
+                  { value: { balance: 100, cash: 5000 }, expected: 100 },
+                  { value: { balance: 0, cash: 6 }, expected: 0 },
+                  { value: { balance: 5, cash: 6 }, expected: 5 },
+                  { value: { balance: 10, cash: 6 }, expected: 10 },
+                  { value: { balance: 100, cash: 6 }, expected: 100 },
+                  { value: { balance: 0, cash: 51 }, expected: 0 },
+                  { value: { balance: 5, cash: 51 }, expected: 5 },
+                  { value: { balance: 10, cash: 51 }, expected: 10 },
+                  { value: { balance: 100, cash: 51 }, expected: 100 },
+                  { value: { balance: 0, cash: 99 }, expected: 0 },
+                  { value: { balance: 5, cash: 99 }, expected: 5 },
+                  { value: { balance: 10, cash: 99 }, expected: 10 },
+                  { value: { balance: 100, cash: 99 }, expected: 100 },
+                  { value: { balance: 0, cash: 1 }, expected: 1 },
+                  { value: { balance: 5, cash: 1 }, expected: 6 },
+                  { value: { balance: 9, cash: 1 }, expected: 10 },
+                  { value: { balance: 10, cash: 1 }, expected: 11 },
+                  { value: { balance: 50, cash: 1 }, expected: 51 },
+                  { value: { balance: 100, cash: 1 }, expected: 101 },
+                  { value: { balance: 0, cash: 2 }, expected: 2 },
+                  { value: { balance: 5, cash: 2 }, expected: 7 },
+                  { value: { balance: 9, cash: 2 }, expected: 11 },
+                  { value: { balance: 10, cash: 2 }, expected: 12 },
+                  { value: { balance: 50, cash: 2 }, expected: 52 },
+                  { value: { balance: 100, cash: 2 }, expected: 102 },
+                  { value: { balance: 0, cash: 5 }, expected: 5 },
+                  { value: { balance: 5, cash: 5 }, expected: 10 },
+                  { value: { balance: 9, cash: 5 }, expected: 14 },
+                  { value: { balance: 10, cash: 5 }, expected: 15 },
+                  { value: { balance: 50, cash: 5 }, expected: 55 },
+                  { value: { balance: 100, cash: 5 }, expected: 105 },
+                  { value: { balance: 0, cash: 10 }, expected: 10 },
+                  { value: { balance: 5, cash: 10 }, expected: 15 },
+                  { value: { balance: 9, cash: 10 }, expected: 19 },
+                  { value: { balance: 10, cash: 10 }, expected: 20 },
+                  { value: { balance: 50, cash: 10 }, expected: 60 },
+                  { value: { balance: 100, cash: 10 }, expected: 110 },
+                  { value: { balance: 0, cash: 50 }, expected: 50 },
+                  { value: { balance: 5, cash: 50 }, expected: 55 },
+                  { value: { balance: 9, cash: 50 }, expected: 59 },
+                  { value: { balance: 10, cash: 50 }, expected: 60 },
+                  { value: { balance: 50, cash: 50 }, expected: 100 },
+                  { value: { balance: 100, cash: 50 }, expected: 150 },
+                  { value: { balance: 0, cash: 100 }, expected: 100 },
+                  { value: { balance: 5, cash: 100 }, expected: 105 },
+                  { value: { balance: 9, cash: 100 }, expected: 109 },
+                  { value: { balance: 10, cash: 100 }, expected: 110 },
+                  { value: { balance: 50, cash: 100 }, expected: 150 },
+                  { value: { balance: 100, cash: 100 }, expected: 200 }
+                 ];
+  arranges.forEach(function(arrange, i) {
+    makeTest(arrange.value, arrange.expected);
+  });
+});
