@@ -29,6 +29,10 @@ class CoffeeMachine {
     }
   } 
 
+  set currentCoffeeNumber(value) {
+    this._currentCoffeeNumber = value; 
+  }
+
   checkValidationCash(cash) {
     return cash === 1 || cash === 2 || cash === 5 || 
            cash === 10 || cash === 50 || cash === 100;
