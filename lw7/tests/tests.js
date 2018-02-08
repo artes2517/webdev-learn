@@ -5,7 +5,7 @@ const assert = require('chai').assert;
 const should = require('chai').should;
 
 //
-//TODO: Задать вопрос "Как тестировать конструктор?";
+//TODO: Задать вопрос "Как тестировать конструктор и метод getCoffeeMenu?";
 //
 
 /* describe('Конструктор', function() {
@@ -40,6 +40,18 @@ describe('Метод checkValidationCash', function() {
                   { value: 13, expected: false },
                   { value: 51, expected: false },
                   { value: 9, expected: false },
+                  { value: 14, expected: false },
+                  { value: 25151, expected: false },
+                  { value: 111, expected: false },
+                  { value: 2311, expected: false },
+                  { value: 311, expected: false },
+                  { value: -20000, expected: false },
+                  { value: -3, expected: false },
+                  { value: -1000, expected: false },
+                  { value: -77, expected: false },
+                  { value: -25, expected: false },
+                  { value: 999, expected: false },
+                  { value: 777, expected: false },
                   { value: 1, expected: true },
                   { value: 2, expected: true },
                   { value: 5, expected: true },
@@ -73,6 +85,18 @@ describe('Метод checkValidationNumberCoffee', function() {
                   { value: 500, expected: false },
                   { value: 15, expected: false },
                   { value: 3500, expected: false },
+                  { value: 14, expected: false },
+                  { value: 25151, expected: false },
+                  { value: 111, expected: false },
+                  { value: 2311, expected: false },
+                  { value: 10, expected: false },
+                  { value: -20000, expected: false },
+                  { value: -3, expected: false },
+                  { value: -1000, expected: false },
+                  { value: -77, expected: false },
+                  { value: -25, expected: false },
+                  { value: 999, expected: false },
+                  { value: 777, expected: false },
                   { value: 11, expected: false },
                   { value: 13, expected: false },
                   { value: 51, expected: false },
@@ -319,7 +343,7 @@ describe('Метод calculateRemain', function() {
                   { value: { balance: 36, coffee: 3 }, expected: 16 },
                   { value: { balance: 50, coffee: 3 }, expected: 30 },
                   { value: { balance: 32, coffee: 3 }, expected: 12 },
-                  { value: { balance: 500, coffee: 3 }, expected: 480 },
+                  { value: { balance: 500, coffee: 3 }, expected: 480 }
                  ];
   arranges.forEach(function(arrange, i) {
     makeTest(arrange.value, arrange.expected);
@@ -352,7 +376,7 @@ describe('Метод getRemainCash', function() {
                   { value: { balance: 36, coffee: 3 }, expected: 16 },
                   { value: { balance: 50, coffee: 3 }, expected: 30 },
                   { value: { balance: 32, coffee: 3 }, expected: 12 },
-                  { value: { balance: 500, coffee: 3 }, expected: 480 },
+                  { value: { balance: 500, coffee: 3 }, expected: 480 }
                  ];
   arranges.forEach(function(arrange, i) {
     makeTest(arrange.value, arrange.expected);
