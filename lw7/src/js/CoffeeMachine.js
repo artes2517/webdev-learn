@@ -24,10 +24,8 @@ class CoffeeMachine {
   }
 
   set currentBalance(value) {
-    if (value >= 0) {
-      this._currentBalance = value;
-    }
-  } 
+    this._currentBalance = value;
+  }
 
   set currentCoffeeNumber(value) {
     this._currentCoffeeNumber = value; 

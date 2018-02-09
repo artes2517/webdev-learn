@@ -2,19 +2,14 @@
 
 const CoffeeMachine = require('../src/js/CoffeeMachine.js');
 const assert = require('chai').assert;
-const should = require('chai').should;
 
-//
-//TODO: Задать вопрос "Как тестировать конструктор и метод getCoffeeMenu?";
-//
-
-/* describe('Конструктор', function() {
-  it(`Должен создать новый объект`, function() {
-    (function() {
+describe('Конструктор', function() {
+  it(`Должен создать новый объект без ошибок`, function() {
+    assert.doesNotThrow(function() {
       let testCoffeMachine = new CoffeeMachine();
-    }).should.not.throw(/NOT A NUMBER/);
+    });
   });
-}); */
+});
 
 describe('Метод checkValidationCash', function() {
   function makeTest(value, expected) {
@@ -347,6 +342,15 @@ describe('Метод calculateRemain', function() {
                  ];
   arranges.forEach(function(arrange, i) {
     makeTest(arrange.value, arrange.expected);
+  });
+});
+
+describe('Метод getCoffeeMenu', function() {
+  it(`Должен вывести в консоли кофе меню без ошибок`, function() {
+    assert.doesNotThrow(function() {
+      let testCoffeMachine = new CoffeeMachine();
+      testCoffeMachine.getCoffeeMenu();
+    });
   });
 });
 
