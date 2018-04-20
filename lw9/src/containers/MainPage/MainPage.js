@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Container, ListGroup, Badge } from 'reactstrap'
 import './MainPage.css'
 import Product from '../../components/Product/Product'
-import ShowError from '../../components/ShowError/ShowError'
+import Error from '../../components/Error/Error'
+import PreloaderIcon from 'react-preloader-icon'
+import Spinning from 'react-preloader-icon/loaders/Spinning'
 
 class MainPage extends Component {
   constructor(props) {
@@ -42,13 +44,24 @@ class MainPage extends Component {
   render() {
     const { error, isLoaded, products } = this.state
     if (error !== null) {
-      return <ShowError error={ JSON.stringify(error)}/>
+      return <Error error={ JSON.stringify(error)}/>
     } else if (!isLoaded) {
-      return <h1><Badge color='info'>Loading...</Badge></h1>
+      return (
+        <Container>
+          <PreloaderIcon
+            className='preloader'
+            loader={Spinning}
+            size={100}
+            strokeWidth={8}
+            strokeColor="#000000"
+            duration={800}
+          />
+        </Container>
+      )
     }
     return (
       <Container>
-        <h1><Badge color='success'>Products:</Badge></h1>
+        <h1><Badge color='primary'>Products:</Badge></h1>
         <ListGroup>
           {
             products.map(product => (

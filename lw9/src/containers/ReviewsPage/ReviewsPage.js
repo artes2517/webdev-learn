@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Container, ListGroup, Badge } from 'reactstrap'
 import './ReviewsPage.css'
 import Review from '../../components/Review/Review'
-import ShowError from '../../components/ShowError/ShowError'
+import Error from '../../components/Error/Error'
+import PreloaderIcon from 'react-preloader-icon'
+import Spinning from 'react-preloader-icon/loaders/Spinning'
 
 class ReviewsPage extends Component {
   constructor(props) {
@@ -44,13 +46,24 @@ class ReviewsPage extends Component {
   render() {
     const { error, isLoaded, reviews } = this.state
     if (error !== null) {
-      return <ShowError error={ JSON.stringify(error)}/>
+      return <Error error={ JSON.stringify(error)}/>
     } else if (!isLoaded) {
-      return <h1><Badge color='info'>Loading...</Badge></h1>
+      return (
+        <Container>
+          <PreloaderIcon
+            className='preloader'
+            loader={Spinning}
+            size={100}
+            strokeWidth={8}
+            strokeColor="#000000"
+            duration={800}
+          />
+        </Container>
+      )
     } else {
       return (
         <Container>
-          <h1><Badge color="success">Reviews:</Badge></h1>
+          <h1><Badge color="primary">Reviews:</Badge></h1>
           <ListGroup>
             {
               reviews.map(review => (

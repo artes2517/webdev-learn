@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { ListGroupItem, Badge } from 'reactstrap'
 
-class ShowError extends Component {
+class Error extends Component {
   static propTypes = {
     error: PropTypes.string.isRequired
   }
@@ -19,4 +19,4 @@ class ShowError extends Component {
   }
 }
 
-export default ShowError
+export default Error

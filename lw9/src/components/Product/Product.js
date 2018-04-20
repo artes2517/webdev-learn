@@ -15,7 +15,7 @@ class Product extends Component {
     const { productName, key, link } = this.props
     return (
       <NavLink className='product' to={ link }>
-        <ListGroupItem className='text' key={ key }>
+        <ListGroupItem color='dark' className='text' key={ key }>
           { productName }
         </ListGroupItem>
       </NavLink>

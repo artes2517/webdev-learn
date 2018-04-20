@@ -12,7 +12,7 @@ class Review extends Component {
   render() {
     const { review, key } = this.props
     return (
-      <ListGroupItem className='text' key={ key }>
+      <ListGroupItem color='dark'className='text' key={ key }>
         { review }
       </ListGroupItem>
     )
