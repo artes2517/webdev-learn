@@ -15,7 +15,7 @@ class MainPage extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:1337/api/products")
+    fetch("http://localhost:1234/api/products")
       .then(res => res.json())
       .then(
         (result) => {

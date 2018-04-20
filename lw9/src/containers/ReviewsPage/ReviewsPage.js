@@ -16,7 +16,7 @@ class ReviewsPage extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:1337/api/products/${ this.productId }/reviews`)
+    fetch(`http://localhost:1234/api/products/${ this.productId }/reviews`)
       .then(res => res.json())
       .then(
         (result) => {
