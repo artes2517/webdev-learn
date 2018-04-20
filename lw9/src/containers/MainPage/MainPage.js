@@ -5,6 +5,7 @@ import Product from '../../components/Product/Product'
 import Error from '../../components/Error/Error'
 import PreloaderIcon from 'react-preloader-icon'
 import Spinning from 'react-preloader-icon/loaders/Spinning'
+import { API } from '../../constants/index'
 
 class MainPage extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class MainPage extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:1234/api/products")
+    fetch(API)
       .then(res => res.json())
       .then(
         (result) => {

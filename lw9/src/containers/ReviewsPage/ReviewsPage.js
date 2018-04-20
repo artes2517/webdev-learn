@@ -5,6 +5,7 @@ import Review from '../../components/Review/Review'
 import Error from '../../components/Error/Error'
 import PreloaderIcon from 'react-preloader-icon'
 import Spinning from 'react-preloader-icon/loaders/Spinning'
+import { API } from '../../constants/index'
 
 class ReviewsPage extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class ReviewsPage extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:1234/api/products/${ this.productId }/reviews`)
+    fetch(`${ API }/${ this.productId }/reviews`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -63,7 +64,7 @@ class ReviewsPage extends Component {
     } else {
       return (
         <Container>
-          <h1><Badge color="primary">Reviews:</Badge></h1>
+          <h1><Badge color='primary'>Reviews:</Badge></h1>
           <ListGroup>
             {
               reviews.map(review => (
